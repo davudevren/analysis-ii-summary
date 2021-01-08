@@ -4,21 +4,21 @@ all: draft
 three:
 	mkdir -p out
 	pdflatex -interaction=nonstopmode -output-directory=/tmp lean.tex
-	pdfnup --nup 3x1 --scale 0.95 -o out/three.pdf /tmp/lean.pdf
+	pdfjam --nup 3x1 --landscape --scale 0.95 -o out/three.pdf /tmp/lean.pdf
 	mv out/three.pdf .
 
 # compile lean 3 to 1 without border
 three-borderless:
 	mkdir -p out
 	pdflatex -interaction=nonstopmode -output-directory=/tmp lean.tex
-	pdfnup --nup 3x1 -o out/three.pdf /tmp/lean.pdf
+	pdfjam --nup 3x1 --landscape -o out/three.pdf /tmp/lean.pdf
 	mv out/three.pdf . 
 
 # compile lean as 1 to 1
 cols:
 	mkdir -p out
 	pdflatex -interaction=nonstopmode -output-directory=/tmp lean.tex
-	pdfnup -o out/lean.pdf /tmp/lean.pdf
+	pdfjam -o out/lean.pdf /tmp/lean.pdf
 	mv out/lean.pdf .
 
 # compile draft
